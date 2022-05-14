@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvm2bhc5o8gmp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfkp7"]
+resource_name = "enemy-material"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.650155, 0.206957, 0.906332, 1)
+metallic = 0.5
+roughness = 0.259259
+
+[sub_resource type="SphereMesh" id="SphereMesh_fs8mi"]
+material = SubResource( "StandardMaterial3D_dfkp7" )
+radius = 0.9
+height = 1.8
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g12lc"]
+radius = 0.9
+
+[node name="Enemy" type="Area3D"]
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource( "SphereMesh_fs8mi" )
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+shape = SubResource( "SphereShape3D_g12lc" )

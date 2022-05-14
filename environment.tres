@@ -1,0 +1,6 @@
+[gd_resource type="Environment" format=3 uid="uid://dtavom5x0id7w"]
+
+[resource]
+ssao_enabled = true
+ssao_intensity = 4.0
+ssao_light_affect = 0.6
