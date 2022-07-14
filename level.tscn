@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" path="res://steve/steve.tscn" id="1_oqx6a"]
 [ext_resource type="Texture2D" uid="uid://civgbcfhc3xg4" path="res://assets/textures/tactilepaving_col.png" id="2_0ounl"]
 [ext_resource type="Texture2D" uid="uid://ddemytyaffcfq" path="res://assets/textures/tactilepaving_nrm_gl.png" id="2_fv6he"]
-[ext_resource type="Script" path="res://interpolated_camera_3d.gd" id="2_myl46"]
 [ext_resource type="FontData" uid="uid://bseaepnbj3ykk" path="res://assets/fonts/Redkost Comic.otf" id="2_s58d7"]
 [ext_resource type="Script" path="res://CoinValue.gd" id="3_2ev3n"]
 [ext_resource type="Texture2D" uid="uid://bc1ujk3ku10l5" path="res://assets/textures/tactilepaving_rgh.png" id="3_oj50r"]
+[ext_resource type="Script" path="res://addons/interpolated_camera_3d/interpolated_camera_3d.gd" id="4_iqdyg"]
 [ext_resource type="MeshLibrary" uid="uid://wfjmaejdsauo" path="res://block/blocks_library.tres" id="5_swo6d"]
 [ext_resource type="PackedScene" uid="uid://dvm2bhc5o8gmp" path="res://enemy.tscn" id="7_pwqon"]
 [ext_resource type="PackedScene" uid="uid://n6ohpipa7vnn" path="res://coin/coin.tscn" id="8_jf3ko"]
@@ -169,8 +169,7 @@ directional_shadow_max_distance = 40.0
 
 [node name="InterpolatedCamera" type="Camera3D" parent="."]
 environment = SubResource( "Environment_v4hya" )
-script = ExtResource( "2_myl46" )
-translate_speed = 0.5
+script = ExtResource( "4_iqdyg" )
 target = NodePath("../Steve/CameraTarget")
 
 [node name="Floor" type="StaticBody3D" parent="."]

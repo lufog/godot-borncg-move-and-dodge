@@ -12,18 +12,18 @@ _global_script_classes=[{
 "base": "Camera3D",
 "class": &"InterpolatedCamera3D",
 "language": &"GDScript",
-"path": "res://interpolated_camera_3d.gd"
+"path": "res://addons/interpolated_camera_3d/interpolated_camera_3d.gd"
 }]
 _global_script_class_icons={
-"InterpolatedCamera3D": ""
+"InterpolatedCamera3D": "res://addons/interpolated_camera_3d/interpolated_camera_3d.svg"
 }
 
 [application]
 
 config/name="Move And Dodge"
 run/main_scene="res://ui/menu.tscn"
-config/icon="res://icon.png"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
+config/icon="res://icon.png"
 
 [display]
 

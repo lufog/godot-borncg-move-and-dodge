@@ -12,6 +12,7 @@ dest_files=["res://.godot/imported/Some Time Later.otf-cc20efab70622ad8e37272cb9
 
 [params]
 
+face_index=0
 antialiased=true
 generate_mipmaps=false
 multichannel_signed_distance_field=false
