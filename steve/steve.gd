@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 		
 		# Rotate mesh
 		var rotation_axis = Vector3(direction.z, 0.0, -direction.x)
-		mesh.rotate(rotation_axis, deg2rad(ROTSPEED))
+		mesh.rotate(rotation_axis, deg_to_rad(ROTSPEED))
 	else:
 		velocity = velocity.lerp(Vector3.ZERO, 0.1)
 	

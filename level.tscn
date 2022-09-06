@@ -1,19 +1,15 @@
-[gd_scene load_steps=22 format=3 uid="uid://43sapw8khe35"]
+[gd_scene load_steps=20 format=3 uid="uid://43sapw8khe35"]
 
 [ext_resource type="Texture2D" uid="uid://do6rhaac3xvq8" path="res://assets/textures/hud_coin.png" id="1_1olmv"]
-[ext_resource type="PackedScene" path="res://steve/steve.tscn" id="1_oqx6a"]
+[ext_resource type="PackedScene" uid="uid://dnrwp1si3pjkd" path="res://steve/steve.tscn" id="1_oqx6a"]
 [ext_resource type="Texture2D" uid="uid://civgbcfhc3xg4" path="res://assets/textures/tactilepaving_col.png" id="2_0ounl"]
 [ext_resource type="Texture2D" uid="uid://ddemytyaffcfq" path="res://assets/textures/tactilepaving_nrm_gl.png" id="2_fv6he"]
-[ext_resource type="FontData" uid="uid://bseaepnbj3ykk" path="res://assets/fonts/Redkost Comic.otf" id="2_s58d7"]
 [ext_resource type="Script" path="res://CoinValue.gd" id="3_2ev3n"]
 [ext_resource type="Texture2D" uid="uid://bc1ujk3ku10l5" path="res://assets/textures/tactilepaving_rgh.png" id="3_oj50r"]
 [ext_resource type="Script" path="res://addons/interpolated_camera_3d/interpolated_camera_3d.gd" id="4_iqdyg"]
 [ext_resource type="MeshLibrary" uid="uid://wfjmaejdsauo" path="res://block/blocks_library.tres" id="5_swo6d"]
 [ext_resource type="PackedScene" uid="uid://dvm2bhc5o8gmp" path="res://enemy.tscn" id="7_pwqon"]
 [ext_resource type="PackedScene" uid="uid://n6ohpipa7vnn" path="res://coin/coin.tscn" id="8_jf3ko"]
-
-[sub_resource type="Font" id="Font_l60cy"]
-data/0 = ExtResource( "2_s58d7" )
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1rr6m"]
 sky_top_color = Color(1, 0.372549, 0.658824, 1)
@@ -22,27 +18,27 @@ ground_bottom_color = Color(0.337255, 0.0588235, 0.466667, 1)
 ground_horizon_color = Color(1, 0.588235, 0.262745, 1)
 
 [sub_resource type="Sky" id="Sky_cr7mp"]
-sky_material = SubResource( "ProceduralSkyMaterial_1rr6m" )
+sky_material = SubResource("ProceduralSkyMaterial_1rr6m")
 
 [sub_resource type="Environment" id="Environment_v4hya"]
 background_mode = 2
-sky = SubResource( "Sky_cr7mp" )
+sky = SubResource("Sky_cr7mp")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6hsgy"]
 size = Vector3(30, 2, 30)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yobt3"]
 albedo_color = Color(1, 0.764706, 0.368627, 1)
-albedo_texture = ExtResource( "2_0ounl" )
-roughness_texture = ExtResource( "3_oj50r" )
+albedo_texture = ExtResource("2_0ounl")
+roughness_texture = ExtResource("3_oj50r")
 normal_enabled = true
 normal_scale = 3.0
-normal_texture = ExtResource( "2_fv6he" )
+normal_texture = ExtResource("2_fv6he")
 uv1_scale = Vector3(0.2, 0.2, 0.2)
 uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_ggr06"]
-material = SubResource( "StandardMaterial3D_yobt3" )
+material = SubResource("StandardMaterial3D_yobt3")
 size = Vector3(30, 2, 30)
 
 [sub_resource type="Animation" id="Animation_pq4gy"]
@@ -103,8 +99,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ucoyr"]
 _data = {
-"RESET": SubResource( "Animation_pq4gy" ),
-"default": SubResource( "Animation_dhaqq" )
+"RESET": SubResource("Animation_pq4gy"),
+"default": SubResource("Animation_dhaqq")
 }
 
 [node name="Level" type="Node3D"]
@@ -112,37 +108,44 @@ _data = {
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD"]
+layout_mode = 1
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -320.0
 offset_top = 20.0
 offset_right = -20.0
-offset_bottom = 100.0
+offset_bottom = 133.0
 grow_horizontal = 0
 theme_override_constants/separation = 10
 alignment = 2
 metadata/_edit_layout_mode = 1
 
 [node name="Coin" type="TextureRect" parent="CanvasLayer/HUD/HBoxContainer"]
-offset_left = 129.0
-offset_right = 209.0
-offset_bottom = 88.0
+layout_mode = 2
+offset_left = 132.0
+offset_right = 212.0
+offset_bottom = 113.0
 grow_horizontal = 0
-texture = ExtResource( "1_1olmv" )
+texture = ExtResource("1_1olmv")
 metadata/_edit_layout_mode = 1
 
 [node name="X" type="Label" parent="CanvasLayer/HUD/HBoxContainer"]
-offset_left = 219.0
-offset_top = 21.0
-offset_right = 247.0
-offset_bottom = 67.0
+layout_mode = 2
+offset_left = 222.0
+offset_top = 27.0
+offset_right = 244.0
+offset_bottom = 85.0
 grow_horizontal = 0
 theme_override_colors/font_color = Color(1, 0.854902, 0.2, 1)
-theme_override_fonts/font = SubResource( "Font_l60cy" )
 theme_override_font_sizes/font_size = 40
 text = "x"
 horizontal_alignment = 1
@@ -150,26 +153,27 @@ vertical_alignment = 1
 metadata/_edit_layout_mode = 1
 
 [node name="CoinValue" type="Label" parent="CanvasLayer/HUD/HBoxContainer"]
-offset_left = 257.0
+layout_mode = 2
+offset_left = 254.0
 offset_right = 300.0
-offset_bottom = 88.0
+offset_bottom = 113.0
 theme_override_colors/font_color = Color(1, 0.854902, 0.2, 1)
-theme_override_fonts/font = SubResource( "Font_l60cy" )
 theme_override_font_sizes/font_size = 80
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource( "3_2ev3n" )
+script = ExtResource("3_2ev3n")
 
 [node name="DirectionalLight" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.661966, 0.749534, 0, -0.749534, -0.661966, 0.0233364, 5.74023, 0.00112057)
 light_color = Color(0.972549, 1, 0.54902, 1)
 shadow_enabled = true
+directional_shadow_mode = 1
 directional_shadow_max_distance = 40.0
 
 [node name="InterpolatedCamera" type="Camera3D" parent="."]
-environment = SubResource( "Environment_v4hya" )
-script = ExtResource( "4_iqdyg" )
+environment = SubResource("Environment_v4hya")
+script = ExtResource("4_iqdyg")
 target = NodePath("../Steve/CameraTarget")
 
 [node name="Floor" type="StaticBody3D" parent="."]
@@ -177,39 +181,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 metadata/_edit_group_ = true
 
 [node name="Collision" type="CollisionShape3D" parent="Floor"]
-shape = SubResource( "BoxShape3D_6hsgy" )
+shape = SubResource("BoxShape3D_6hsgy")
 
 [node name="Mesh" type="MeshInstance3D" parent="Floor"]
-mesh = SubResource( "BoxMesh_ggr06" )
+mesh = SubResource("BoxMesh_ggr06")
 
-[node name="Steve" parent="." instance=ExtResource( "1_oqx6a" )]
+[node name="Steve" parent="." instance=ExtResource("1_oqx6a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5101, 1, 6.01464)
 
 [node name="CameraTarget" type="Node3D" parent="Steve"]
 transform = Transform3D(1, 0, 0, 0, 0.494882, 0.86896, 0, -0.86896, 0.494882, 0, 7.39047, 6.0983)
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource( "5_swo6d" )
+mesh_library = ExtResource("5_swo6d")
 cell_size = Vector3(1, 1, 1)
 data = {
 "cells": PackedInt32Array(3, 0, 1, 10, 0, 1, 14, 0, 0, 65521, 0, 0, 65525, 0, 1, 3, 1, 1, 10, 1, 1, 14, 1, 0, 65521, 1, 0, 65525, 1, 1, 3, 2, 1, 10, 2, 1, 14, 2, 0, 65521, 2, 0, 65525, 2, 1, 65526, 2, 1, 65527, 2, 1, 65528, 2, 1, 65529, 2, 1, 65530, 2, 1, 65531, 2, 1, 65532, 2, 1, 3, 3, 1, 10, 3, 1, 14, 3, 0, 65521, 3, 0, 65529, 3, 1, 0, 4, 1, 1, 4, 1, 2, 4, 1, 3, 4, 1, 4, 4, 1, 5, 4, 1, 6, 4, 1, 10, 4, 1, 14, 4, 0, 65521, 4, 0, 65529, 4, 1, 0, 5, 1, 6, 5, 1, 14, 5, 0, 65521, 5, 0, 65529, 5, 1, 0, 6, 1, 6, 6, 1, 14, 6, 0, 65521, 6, 0, 65525, 6, 1, 65529, 6, 1, 0, 7, 1, 6, 7, 1, 7, 7, 1, 8, 7, 1, 9, 7, 1, 10, 7, 1, 11, 7, 1, 14, 7, 0, 65521, 7, 0, 65525, 7, 1, 0, 8, 1, 6, 8, 1, 14, 8, 0, 65521, 8, 0, 65525, 8, 1, 6, 9, 1, 14, 9, 0, 65521, 9, 0, 65525, 9, 1, 6, 10, 1, 14, 10, 0, 65521, 10, 0, 65525, 10, 1, 65526, 10, 1, 65527, 10, 1, 65528, 10, 1, 65529, 10, 1, 65530, 10, 1, 65531, 10, 1, 65532, 10, 1, 65533, 10, 1, 14, 11, 0, 65521, 11, 0, 14, 12, 0, 65521, 12, 0, 14, 13, 0, 65521, 13, 0, 0, 14, 0, 1, 14, 0, 2, 14, 0, 3, 14, 0, 4, 14, 0, 5, 14, 0, 6, 14, 0, 7, 14, 0, 8, 14, 0, 9, 14, 0, 10, 14, 0, 11, 14, 0, 12, 14, 0, 13, 14, 0, 14, 14, 0, 65521, 14, 0, 65522, 14, 0, 65523, 14, 0, 65524, 14, 0, 65525, 14, 0, 65526, 14, 0, 65527, 14, 0, 65528, 14, 0, 65529, 14, 0, 65530, 14, 0, 65531, 14, 0, 65532, 14, 0, 65533, 14, 0, 65534, 14, 0, 65535, 14, 0, 0, 65521, 0, 1, 65521, 0, 2, 65521, 0, 3, 65521, 0, 4, 65521, 0, 5, 65521, 0, 6, 65521, 0, 7, 65521, 0, 8, 65521, 0, 9, 65521, 0, 10, 65521, 0, 11, 65521, 0, 12, 65521, 0, 13, 65521, 0, 14, 65521, 0, 65521, 65521, 0, 65522, 65521, 0, 65523, 65521, 0, 65524, 65521, 0, 65525, 65521, 0, 65526, 65521, 0, 65527, 65521, 0, 65528, 65521, 0, 65529, 65521, 0, 65530, 65521, 0, 65531, 65521, 0, 65532, 65521, 0, 65533, 65521, 0, 65534, 65521, 0, 65535, 65521, 0, 14, 65522, 0, 65521, 65522, 0, 14, 65523, 0, 65521, 65523, 0, 10, 65524, 1, 14, 65524, 0, 65521, 65524, 0, 0, 65525, 1, 4, 65525, 1, 5, 65525, 1, 6, 65525, 1, 7, 65525, 1, 8, 65525, 1, 9, 65525, 1, 10, 65525, 1, 14, 65525, 0, 65521, 65525, 0, 65525, 65525, 1, 65526, 65525, 1, 65527, 65525, 1, 65528, 65525, 1, 65529, 65525, 1, 65530, 65525, 1, 65534, 65525, 1, 65535, 65525, 1, 10, 65526, 1, 14, 65526, 0, 65521, 65526, 0, 65525, 65526, 1, 10, 65527, 1, 14, 65527, 0, 65521, 65527, 0, 65525, 65527, 1, 14, 65528, 0, 65521, 65528, 0, 65525, 65528, 1, 14, 65529, 0, 65521, 65529, 0, 65525, 65529, 1, 65529, 65529, 1, 65530, 65529, 1, 65531, 65529, 1, 65532, 65529, 1, 65533, 65529, 1, 1, 65530, 1, 2, 65530, 1, 3, 65530, 1, 4, 65530, 1, 5, 65530, 1, 6, 65530, 1, 7, 65530, 1, 14, 65530, 0, 65521, 65530, 0, 65525, 65530, 1, 65529, 65530, 1, 7, 65531, 1, 14, 65531, 0, 65521, 65531, 0, 65525, 65531, 1, 65529, 65531, 1, 7, 65532, 1, 14, 65532, 0, 65521, 65532, 0, 65529, 65532, 1, 14, 65533, 0, 65521, 65533, 0, 65529, 65533, 1, 3, 65534, 1, 14, 65534, 0, 65521, 65534, 0, 3, 65535, 1, 14, 65535, 0, 65521, 65535, 0)
 }
 
-[node name="Enemy1" parent="." instance=ExtResource( "7_pwqon" )]
+[node name="Enemy1" parent="." instance=ExtResource("7_pwqon")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.556846, 1, -4.90989)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy1"]
 autoplay = "default"
 libraries = {
-"": SubResource( "AnimationLibrary_ucoyr" )
+"": SubResource("AnimationLibrary_ucoyr")
 }
 
 [node name="Coins" type="Node3D" parent="."]
 
-[node name="Coin" parent="Coins" instance=ExtResource( "8_jf3ko" )]
+[node name="Coin" parent="Coins" instance=ExtResource("8_jf3ko")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.373167, 1, 0)
 
-[node name="Coin2" parent="Coins" instance=ExtResource( "8_jf3ko" )]
+[node name="Coin2" parent="Coins" instance=ExtResource("8_jf3ko")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.16439, 1, 0)
 
 [connection signal="body_entered" from="Enemy1" to="Steve" method="_on_enemy_body_entered"]

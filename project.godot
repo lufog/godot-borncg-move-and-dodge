@@ -23,7 +23,7 @@ _global_script_class_icons={
 config/name="Move And Dodge"
 run/main_scene="res://ui/menu.tscn"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
-config/icon="res://icon.png"
+config/icon="res://icon.svg"
 
 [display]
 

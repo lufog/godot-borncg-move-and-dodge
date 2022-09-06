@@ -8,7 +8,7 @@ signal coin_collected;
 
 
 func _process(delta: float) -> void:
-	rotate_y(deg2rad(-180 * delta))
+	rotate_y(deg_to_rad(-180 * delta))
 
 
 func _on_body_entered(body: Node3D) -> void:
